@@ -1,0 +1,78 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(158, 24, 140);
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weatherform{
+    margin:20;
+}
+.cityinput{
+    padding:10px;
+    font-size: 2rem;
+    font-weight: bold;
+    border:2px solid burlywood;
+    border-radius: 10px;
+    margin:10px;
+    width:300px;
+
+}
+button[type="submit"]{
+    padding:10px 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: chartreuse;
+    color:azure;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+button[type="submit"]:hover{
+    background-color: black;
+}
+.card{
+    background:linear-gradient(180deg,orange, blue);
+    padding:50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    min-width: 350px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size:3.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+p{
+    font-size: 1.5rem;
+    margin:5px 0;
+}
+.city,.temperature{
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color:black;
+}
+.humidity{
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.disk{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.weatheremoji{
+    margin:0;
+    font-size: 7.5rem;
+}
+.error{
+    font-size: 2.5rem;
+    color:black;
+    font-weight: bold;
+}
