@@ -1,78 +1,130 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(158, 24, 140);
-    margin:0;
-    display:flex;
+/* -------------------- Reset & Base -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+    color: #fff;
+    overflow-x: hidden;
+    transition: background 0.5s ease-in-out;
 }
-.weatherform{
-    margin:20;
-}
-.cityinput{
-    padding:10px;
-    font-size: 2rem;
-    font-weight: bold;
-    border:2px solid burlywood;
-    border-radius: 10px;
-    margin:10px;
-    width:300px;
 
-}
-button[type="submit"]{
-    padding:10px 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    background-color: chartreuse;
-    color:azure;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-
-}
-button[type="submit"]:hover{
-    background-color: black;
-}
-.card{
-    background:linear-gradient(180deg,orange, blue);
-    padding:50px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px black;
-    min-width: 350px;
-    display:flex;
+/* -------------------- Form -------------------- */
+.weatherform {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease forwards;
 }
-h1{
-    font-size:3.5rem;
-    margin-top: 0;
-    margin-bottom: 25px;
+
+.weatherform input.cityinput {
+    padding: 10px 15px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
 }
-p{
-    font-size: 1.5rem;
-    margin:5px 0;
-}
-.city,.temperature{
-    font-size: 3.5rem;
+
+.weatherform button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #1e90ff;
+    color: #fff;
     font-weight: bold;
-    margin-bottom: 25px;
-    color:black;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-.humidity{
+
+.weatherform button:hover {
+    background: #63b3ed;
+    transform: scale(1.05);
+}
+
+/* -------------------- Card -------------------- */
+.card {
+    margin-top: 30px;
+    background: rgba(0,0,0,0.6);
+    padding: 20px 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Text styles */
+.city {
+    font-size: 2em;
     font-weight: bold;
-    margin-bottom: 25px;
 }
-.disk{
-    font-style: italic;
-    font-weight: bold;
-    font-size: 2rem;
+
+.temperature {
+    font-size: 1.8em;
 }
-.weatheremoji{
-    margin:0;
-    font-size: 7.5rem;
+
+.humidity,
+.disk,
+.weatheremoji {
+    font-size: 1.2em;
 }
-.error{
-    font-size: 2.5rem;
-    color:black;
-    font-weight: bold;
+
+.errordisplay {
+    font-size: 1.2em;
+    color: #ff6b6b;
+}
+
+/* -------------------- Animations -------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* -------------------- Responsive -------------------- */
+@media screen and (max-width: 600px) {
+    .weatherform {
+        width: 90%;
+        padding: 15px 20px;
+    }
+
+    .weatherform input.cityinput {
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+        padding: 15px 20px;
+    }
+
+    .city {
+        font-size: 1.5em;
+    }
+
+    .temperature {
+        font-size: 1.5em;
+    }
 }
