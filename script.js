@@ -1,7 +1,8 @@
 const weatherform = document.querySelector('.weatherform');
 const city = document.querySelector(".cityinput");
 const card = document.querySelector(".card");
-const APIKEY= "be5b886af77847c064786b520b74c0e0";
+const APIKEY = "be5b886af77847c064786b520b74c0e0";
+
 weatherform.addEventListener('submit', async event => {
     event.preventDefault();
     if (city.value.trim()) {
@@ -18,12 +19,19 @@ weatherform.addEventListener('submit', async event => {
 });
 
 async function getweatherData(city) {
-    const urlapi = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}`;
-    const response = await fetch(urlapi);
-    if (!response.ok) {
-        throw new Error("Could not fetch weather in the specified location");
+    // ✅ Changed to HTTPS to avoid mixed content issues
+    const urlapi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}`;
+    
+    try {
+        const response = await fetch(urlapi);
+        if (!response.ok) {
+            throw new Error("Could not fetch weather in the specified location");
+        }
+        return await response.json();
+    } catch (error) {
+        // Catch network errors like CORS, offline, or blocked requests
+        throw new Error("Network error: Unable to fetch weather data");
     }
-    return await response.json();
 }
 
 function displayweatherinfo(data) {
