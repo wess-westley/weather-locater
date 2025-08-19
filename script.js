@@ -19,7 +19,7 @@ weatherform.addEventListener('submit', async event => {
 });
 
 async function getweatherData(city) {
-    // ✅ Changed to HTTPS to avoid mixed content issues
+    // ✅ Using HTTPS to avoid mixed content errors
     const urlapi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}`;
     
     try {
@@ -29,7 +29,6 @@ async function getweatherData(city) {
         }
         return await response.json();
     } catch (error) {
-        // Catch network errors like CORS, offline, or blocked requests
         throw new Error("Network error: Unable to fetch weather data");
     }
 }
